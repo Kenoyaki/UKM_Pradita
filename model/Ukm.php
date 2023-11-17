@@ -28,15 +28,15 @@ class Ukm{
         $ps -> execute($data);
     }
 
-     public function getUkm($id){
-         $sql = "SELECT * FROM list_ukm 
-        WHERE list_ukm = ?";
-         //PDO prepare statement
- 		$ps = $this->koneksi->prepare($sql);
- 		$ps->execute([$id]);
- 		$rs = $ps->fetch();
- 		return $rs;
-     }
+    public function getUkm($id){
+    $sql = "SELECT * FROM list_ukm 
+            WHERE id_ukm = ?"; // Ubah 'list_ukm' menjadi nama kolom yang sesuai, misalnya 'id'
+    //PDO prepare statement
+    $ps = $this->koneksi->prepare($sql);
+    $ps->execute([$id]);
+    $rs = $ps->fetch();
+    return $rs;
+    }
 
 //      // ubah data
 //      public function ubah($data){
