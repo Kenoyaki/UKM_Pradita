@@ -25,12 +25,33 @@ $rs  = $model->getUkm($id); // panggil fungsi u/ mendetailkan produk
                 </div>
 </header>
 
+<!-- Foto dari ukm -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 text-center align-items-center">
+            <?php
+            if(!empty($rs['foto'])){
+            ?>
+                <img src="images/<?= $rs['foto'] ?>" width="50%" />
+            <?php
+            }
+            else{
+            ?>
+                <img src="assets/nophoto.jpg" width="50%" />
+            <?php } ?>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
 
+<!-- Nama dari UKM -->
 <div class="col-lg-12 text-center">
-    <h2 class="pt-5"><?php echo $rs['nama_ukm'] ?></h2>
+    <h2 class="m-2"><?php echo $rs['nama_ukm'] ?></h2>
     <hr class="divider" />
 </div>
 
+<!-- Deskripsi UKM -->
 <div class="container">
     <div class="row">
         <div class="col-lg-2"></div>

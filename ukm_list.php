@@ -20,7 +20,7 @@ $rs = $obj_ukm->index();
                         <div class="mt-5">
                             <div class="mb-2">
                                 <?php
-                                if(!empty($produk['foto'])){
+                                if(!empty($ukm['foto'])){
                                 ?>
                                     <img src="images/<?= $ukm['foto'] ?>" width="50%" />
                                 <?php

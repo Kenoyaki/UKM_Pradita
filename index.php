@@ -25,7 +25,7 @@
         include_once 'model/Ukm.php';
         include_once 'navigator.php';
         //tangkap req d url
-        $hal = $_REQUEST['hal'];
+        $hal = isset($_REQUEST['hal']) ? $_REQUEST['hal'] : '';
         //tempatkan halaman sesuai request di URL 
         if(!empty($hal)){
              include_once $hal.'.php';
