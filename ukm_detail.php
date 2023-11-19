@@ -25,43 +25,60 @@ $rs  = $model->getUkm($id); // panggil fungsi u/ mendetailkan produk
                 </div>
 </header>
 
-<!-- Foto dari ukm -->
 <div class="container">
-    <div class="row">
-        <div class="col-lg-2"></div>
+    <!-- Foto dari ukm -->
+    <div class="row justify-content-center">
         <div class="col-lg-8 text-center align-items-center">
             <?php
-            if(!empty($rs['foto'])){
+            if (!empty($rs['foto'])) {
             ?>
                 <img src="images/<?= $rs['foto'] ?>" width="50%" />
             <?php
-            }
-            else{
+            } else {
             ?>
                 <img src="assets/nophoto.jpg" width="50%" />
             <?php } ?>
         </div>
-        <div class="col-lg-2"></div>
     </div>
-</div>
 
-<!-- Nama dari UKM -->
-<div class="col-lg-12 text-center">
-    <h2 class="m-2"><?php echo $rs['nama_ukm'] ?></h2>
-    <hr class="divider" />
-</div>
-
-<!-- Deskripsi UKM -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8 text-center align-items-center">
-            <p class="m-2 "><?php echo $rs['deskripsi_ukm'] ?>
-            </p>
+    <!-- Nama dari UKM -->
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+            <h2 class="mt-3"><?php echo $rs['nama_ukm'] ?></h2>
+            <hr class="divider" />
         </div>
-        <div class="col-lg-2"></div>
+    </div>
+
+    <!-- Deskripsi UKM -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <p class="mb-5"><?php echo $rs['deskripsi_ukm'] ?></p>
+        </div>
+    </div>
+
+    <!-- Registrasi anggota UKM -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <h2 class="m-3">Daftar</h2>
+            <hr class="divider"/>
+        </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center m-3">
+        <div class="col-lg-6">
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <!-- Dropdown input -->
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="division" data-sb-validations="required">
+                        <option value="" selected disabled>Pilih divisi</option>
+                        <option value="division1">Division 1</option>
+                        <option value="division2">Division 2</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <label for="division">Divisi</label>
+                    <div class="invalid-feedback" data-sb-feedback="division:required">Please select a division.</div>
+                </div>
+                <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+            </form>
+        </div>
     </div>
 </div>
-
-
-
