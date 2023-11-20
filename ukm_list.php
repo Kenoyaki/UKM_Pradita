@@ -3,6 +3,13 @@
 $obj_ukm = new Ukm();
 //panggil fungsionalitas terkait
 $rs = $obj_ukm->index();
+
+function limitWords($text) {
+    $words = explode(" ", $text);
+    $limitedWords = array_slice($words, 0, 5);
+    $result = implode(" ", $limitedWords);
+    return $result;
+}
 ?>
 
 <section class="page-section bg-dark text-white" id="services">
@@ -22,7 +29,7 @@ $rs = $obj_ukm->index();
                                 <?php
                                 if(!empty($ukm['foto'])){
                                 ?>
-                                    <img src="images/<?= $ukm['foto'] ?>" width="50%" />
+                                    <img src="<?= $ukm['foto'] ?>" width="50%" />
                                 <?php
                                 }
                                 else{
@@ -31,7 +38,10 @@ $rs = $obj_ukm->index();
                                 <?php } ?>
                             </div>
                             <h3 class="h4 mb-2"><?= $ukm['nama_ukm'] ?></h3>
-                            <p class="text-muted mb-0"><?= $ukm['deskripsi_ukm'] ?></p>
+
+                            <?php $limitedDesc = limitWords($ukm['deskripsi_ukm'])?>
+                            <p class="text-muted mb-3"><?= $limitedDesc ?></p>
+
                             <a href="index.php?hal=ukm_detail&id_ukm=<?= $ukm['id_ukm'] ?>" 
                                 title="Detail Ukm" class="btn btn-primary btn-sm text-dark" >
                                 <i class="bi bi-eye-fill"></i>

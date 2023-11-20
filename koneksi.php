@@ -1,6 +1,6 @@
 <?php
 /* Connect to a MySQL database using driver invocation */
-$dsn = 'mysql:dbname=web_ukm;host=localhost;port=3306';
+$dsn = 'mysql:dbname=web_ukm_v2;host=localhost;port=3306';
 $user = 'root';
 $password = '';
 

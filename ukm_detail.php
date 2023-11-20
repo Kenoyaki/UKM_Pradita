@@ -28,11 +28,11 @@ $rs  = $model->getUkm($id); // panggil fungsi u/ mendetailkan produk
 <div class="container">
     <!-- Foto dari ukm -->
     <div class="row justify-content-center">
-        <div class="col-lg-8 text-center align-items-center">
+        <div class="col-lg-8 text-center align-items-center mt-4">
             <?php
             if (!empty($rs['foto'])) {
             ?>
-                <img src="images/<?= $rs['foto'] ?>" width="50%" />
+                <img src="<?= $rs['foto'] ?>" width="30%" />
             <?php
             } else {
             ?>
@@ -70,14 +70,25 @@ $rs  = $model->getUkm($id); // panggil fungsi u/ mendetailkan produk
                 <div class="form-floating mb-3">
                     <select class="form-control" id="division" data-sb-validations="required">
                         <option value="" selected disabled>Pilih divisi</option>
-                        <option value="division1">Division 1</option>
-                        <option value="division2">Division 2</option>
+
+                        <?php 
+                        $sql = "SELECT nama_divisi FROM divisi";
+                        $queryDivisi = $dbh->query($sql); 
+
+                        while($row = $queryDivisi->fetch(PDO::FETCH_ASSOC)){
+                        $nama_divisi = $row['nama_divisi'];
+                        ?>
+                        <option value="<?= $nama_divisi ?>"> <?= $nama_divisi ?> </option>
+                        <?php
+                        }
+                        ?>
+
                         <!-- Add more options as needed -->
                     </select>
                     <label for="division">Divisi</label>
                     <div class="invalid-feedback" data-sb-feedback="division:required">Please select a division.</div>
                 </div>
-                <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+                <div class="d-grid"><button class="btn btn-primary btn-xl mt-3" id="submitButton" type="submit">Submit</button></div>
             </form>
         </div>
     </div>
