@@ -1,4 +1,18 @@
+<?php
+    $action = isset($_POST['action']) ? $_POST['action'] : '';
 
+    if($action == "login"){
+        $NIM = $_POST['NIM'];
+        $password = $_POST['password'];
+
+            $sqlListUser = "SELECT * FROM list_user WHERE nim = '$NIM'";
+            $queryListUser = $dbh->query($sqlListUser);
+
+
+    }
+
+    //while($row = $queryListUser->fetch(PDO::FETCH_ASSOC)){}
+?>
 <header class="masthead">
     <div class="container">
         <div class="row gx-4 gx-lg-5 justify-content-center aligns-items-center mb-5">
@@ -28,9 +42,27 @@
                     </div>
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                    <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="loginButton" type="login">Login</button></div>
+                    <div class="d-grid"><button class="btn btn-primary btn-xl" id="loginButton" type="login" onclick="login()">Login</button></div>
                 </form>
             </div>
         </div>        
     </div>
 </header>
+
+<script>
+    function login() {
+        const NIM = $('#NIM').val();
+        const password = $('#password').val();
+        alert('Login button clicked!');
+
+        $.ajax({
+            type: "POST",
+            url: urlLogin,
+            data: {
+                action: "login",
+                NIM,
+                password
+            }
+        })
+    }
+</script>
