@@ -88,6 +88,10 @@ $rs  = $model->getUkm($id); // panggil fungsi u/ mendetailkan produk
                     <label for="division">Divisi</label>
                     <div class="invalid-feedback" data-sb-feedback="division:required">Please select a division.</div>
                 </div>
+                
+                <?php 
+                $sql = "INSERT INTO"
+                ?>
                 <div class="d-grid"><button class="btn btn-primary btn-xl mt-3" id="submitButton" type="submit">Submit</button></div>
             </form>
         </div>
