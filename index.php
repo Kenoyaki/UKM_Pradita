@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,6 +27,7 @@
         <?php 
         include_once 'koneksi.php';
         include_once 'model/Ukm.php';
+        include_once 'model/User.php';
         include_once 'navigator.php';
         //tangkap req d url
         $hal = isset($_REQUEST['hal']) ? $_REQUEST['hal'] : '';
@@ -31,7 +36,7 @@
              include_once $hal.'.php';
         }
         else{
-             include_once 'login.php';
+             include_once 'header.php';
         }
         ?>
         
